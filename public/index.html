@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -8,10 +8,22 @@
     <title><%= htmlWebpackPlugin.options.title %></title>
   </head>
   <body>
-    <noscript>
-      <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
-    </noscript>
-    <div id="app"></div>
-    <!-- built files will be auto injected -->
+      <noscript>
+          <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+      </noscript>
+      <div id="app">
+          sakuriverの家です
+          <button class="btn btn-primary my-2" @click="showModal">ご連絡</button>
+
+      </div>
+      <!-- モーダルウィンドウ用 -->
+      <modal name="user-modal">
+          <h2>ご連絡</h2>
+          <h3>面談や各種登壇で以下の内容については、答えられないのでご留意ください。</h3>
+          <p>2015年10月～2019年5月のゲーム会社における技術以外の担当やコミットした内容</p>
+          <p>上記期間においては、タイトル名を上げての説明も、CryptoDerbyのみとなります</p>
+          <p>CryptoDerbyの仕様や源運用については <a href="https://twitter.com/txd890">地場 衛</a>さん  まででお願いいたします</p>
+          <p>各案件の取引先情報</p>
+      </modal>
   </body>
 </html>
