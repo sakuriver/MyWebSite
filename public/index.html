@@ -1,29 +1,74 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
     <title><%= htmlWebpackPlugin.options.title %></title>
-  </head>
+    <script src="https://unpkg.com/vue"></script>
+    <link rel="stylesheet" type="text/css" href="/style.css" />
+    <!-- template for the modal component -->
+    <script type="text/x-template" id="modal-template">
+        <transition name="modal">
+            <div class="modal-mask">
+                <div class="modal-wrapper">
+                    <div class="modal-container">
+                        <div class="modal-header">
+                            <slot name="header">
+                                default header
+                            </slot>
+                        </div>
+                        <div class="modal-body">
+                            <slot name="body">
+                                default body
+                            </slot>
+                        </div>
+                        <div class="modal-footer">
+                            <slot name="footer">
+                                default footer
+                                <button class="modal-default-button" @click="$emit('close')">
+                                    OK
+                                </button>
+                            </slot>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </transition>
+    </script>
+</head>
   <body>
       <noscript>
           <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
       </noscript>
       <div id="app">
           sakuriverの家です
-          <button class="btn btn-primary my-2" @click="showModal">ご連絡</button>
+          <button id="show-modal" @click="showModal = true">ご連絡(Notification)</button>
 
+          <!-- モーダルウィンドウ用 -->
+          <modal v-if="showModal" @close="showModal = false">
+              <h2>ご連絡</h2>
+              <h3>面談や各種登壇で以下の内容については、答えられないのでご留意ください。</h3>
+              <p>2015年10月～2019年5月のゲーム会社における技術以外の担当やコミットした内容</p>
+              <p>上記期間においては、タイトル名を上げての説明も、CryptoDerbyのみとなります</p>
+              <p>CryptoDerbyの仕様や現運用については Tomohiro Yakumaru <a href="https://twitter.com/txd890">地場 衛</a>さん  まででお願いいたします</p>
+              <p>各案件の取引先情報</p>
+          </modal>
       </div>
-      <!-- モーダルウィンドウ用 -->
-      <modal name="user-modal">
-          <h2>ご連絡</h2>
-          <h3>面談や各種登壇で以下の内容については、答えられないのでご留意ください。</h3>
-          <p>2015年10月～2019年5月のゲーム会社における技術以外の担当やコミットした内容</p>
-          <p>上記期間においては、タイトル名を上げての説明も、CryptoDerbyのみとなります</p>
-          <p>CryptoDerbyの仕様や源運用については <a href="https://twitter.com/txd890">地場 衛</a>さん  まででお願いいたします</p>
-          <p>各案件の取引先情報</p>
-      </modal>
+      <script>
+      // register modal component
+      Vue.component("modal", {
+        template: "#modal-template"
+      });
+
+      // start app
+      new Vue({
+        el: "#app",
+        data: {
+          showModal: false
+        }
+      });
+      </script>
   </body>
 </html>
