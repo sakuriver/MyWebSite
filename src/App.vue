@@ -1,19 +1,6 @@
-<template>
-    <div>Hello {{ value }}</div>
-</template>
+Vue.use(window["vue-js-modal"].default);
 
-<script>
-const VModal = window["vue-js-modal"].default
-export default {
-  name: "App",
-  data() {
-    return {
-      value: "World"
-    };
-  }
-};
-Vue.use(VModal);
-var app =new Vue({
+var app = new Vue({
   el: '#app',
   methods: {
     show : function() {
@@ -23,5 +10,4 @@ var app =new Vue({
       this.$modal.hide('hello-world');
     },
   }
-});
-</script>
+})
