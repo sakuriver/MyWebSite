@@ -13,7 +13,7 @@ export default {
   }
 };
 Vue.use(VModal);
-new Vue({
+var app =new Vue({
   el: '#app',
   methods: {
     show : function() {
