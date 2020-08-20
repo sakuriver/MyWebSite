@@ -6,6 +6,16 @@
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
     <title><%= htmlWebpackPlugin.options.title %></title>
     <script src="https://unpkg.com/vue"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue-js-modal@1.3.31/dist/index.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vue-js-modal@1.3.31/dist/styles.css">    
+    <style>
+    .modal-header, .modal-body {
+        padding: 5px 25px;
+      }
+      .modal-header {
+        border-bottom: 1px solid #ddd;
+      }
+    </style> 
 </head>
 <body>
     <noscript>
@@ -14,8 +24,8 @@
     <div id="app">
     </div>
     <div>
-        sakuriverの家です
-        <button id="show-modal" @click="showModal = true">ご連絡(Notification)</button>
+        sakuriver/鈴江 勝成の家です
+        <button v-on:click="show" class="button">ご連絡(Notification)</button>
         <div>
             商業実績(公開可能分)
             CryptoDerby
@@ -35,70 +45,75 @@
             <a href="https://docs.google.com/spreadsheets/d/1I8TV2l-UcwWR5whEZT24nBveiK999qlD8ngEuhkaVzk/edit?usp=drive_open&ouid=112709719422071788648">オープンコンテンツ</a>
         </div>
         <!-- モーダルウィンドウ用 -->
-        <div>
-            <h2>ご連絡</h2>
-            <h3>面談や各種登壇で以下の内容については、答えられないのでご留意ください。</h3>
-            <p>2015年10月～2019年5月、2020年3月~2020年８月現在のゲーム会社における技術以外の担当やコミットした内容</p>
-            <p>エンジニア以外のスプリント周りについてもなしでお願いいたします</p>
-            <p>上記期間においては、タイトル名を上げての説明も、CryptoDerbyのみとなります</p>
-            <p>CryptoDerbyの仕様や現運用については 総合ディレクターである Tomohiro Yakumaru <a href="https://twitter.com/txd890">地場 衛</a>さん  まででお願いいたします</p>
-            <p>各案件の取引先情報</p>
-            <p>各案件の非公開扱いとなる技術領域</p>
+        <modal name="hello-world" :draggable="true" :resizable="true">
+        <div class="modal-header">
+            <h2>業務経歴について</h2>
         </div>
-        <div>
-            <h2>IP関連について</h2>
-            <h3>ip関連の案件において、2020年９月時点です。そのため、以下は同じく答えられないのでご留意ください</h3>
-            <p>各案件の取引先情報</p>
-            <p>各案件の非公開扱いとなる技術領域</p>
-            <p>技術以外の参考領域</p>
-        </div>
-        <!-- モーダルウィンドウ２-->
-        <div>
-            <h2>ブロックチェーン関連についてのご連絡</h2>
-            <h3>CryptoDerbyから、2020年1月までのお話となります</h3>
-            <h4>鈴江の当時の役割</h4>
-            <h4>契約内容：非裁量案件として、技術職</h4>
-            <h4>担当領域1：オフチェーン側のゲーム開発、社内の企画チームから連絡が来た場合のお問い合わせ対応</h4>
-            <h4>担当領域2：プリセールにおける会員登録部分のjavascript担当</h4>
-            <h4>担当領域3：当時の社内企画チームから依頼を受けて技術的側面でのホワイトペーパーレビュー</h4>
-            <h4>お問い合わせを頂いても精度が低いため、各チームへご連絡をお願いします</h4>
-            <h4>鈴江の当時の未担当(技術)</h4>
-            <h4>領域1：エンジニアメンバーの賞与や配属・管理に関わる評価表提出(Tomohiro Yakumaruさんがプロジェクトメンバー対応)</h4>
-            <h4>お問い合わせを頂いても精度が低いため、各チームへご連絡をお願いします</h4>
+        <div class="modal-body">
             <div>
-                <h3>株式会社プラチナエッグ様ならびに Tomohiro Yakumaruさんの領域</h3>
-                <h4>CryptoDerby並び当時のブロックチェーンにおけるゲームサイクル設計思想</h4>
-                <div>ゲーム価値向上：ロードマップにおける優先順位</div>
-                <h4>CryptoDerby及びETHにおける馬トークンの資産価値について</h4>
-                <div>資産価値とは薬丸さんから、ご連絡をいただいており以下のように伺っております</div>
-                <div>当時は未熟な状態で、以下のような多くのことに教えて頂きました。<br/>現在は、既に価値設計についてパラメータは完了していると伺っております。</div>
-                <div><red>＊鈴江に各種雑談で聞かれても、主観でしか答えられないのでご注意願います</red></div>
-                <div>鈴江自身は、下記領域についてはご指導を受けたのみとなりますので連絡先を記載いたします</div>
-                <div>ブロックチェーンのビジネス部分の登壇依頼は、Tomohiro Yakumaruさんにお願いします</div>
-                <div>アプリ問い合わせ CryptoDerby問い合わせ <a href="https://twitter.com/CryptoDerbyTKY"></a>さん</div>
-                <div>総合ディレクター Tomohiro Yakumaru <a href="https://twitter.com/txd890">地場 衛</a>さん</div>
-                <div>CryptoDerby内</div>
-                <div>馬の見た目における希少度：数量限定馬の血統、人気があるかなど</div>
-                <div>馬のインゲームにおける希少度1：スピードとスタミナの組み合わせによる距離毎に速く走れるか</div>
-                <div>馬のインゲームにおける希少度2：草原や砂場などの地形に対して速く走れるか</div>
-                <div>馬のインゲームにおける希少度3：レースの実績数における名誉</div>
-                <div>馬のインゲームにおける希少度4：ゲーム内の名前や馬主による知名度</div>
-                <div>馬のインゲームにおける希少度5：各パーツのレアリティと市場価値</div>
-                <div>馬のインゲームにおける希少度6：馬の年齢</div>
-                <div>馬のインゲームにおける希少度7：ゲーム世界における数量限定馬(ETHでの取引限定)</div>                
-                <div>CryptoDerby外(ETHプラットフォームとしてご指導内容)</div>
-                <div>取引数：パブリックチェーンにおけるアドレスでの流通度</div>
-                <div>価格：パブリックチェーンにおけるOpenSea等における取引価格</div>
-                <div>ホワイトペーパーにおけるTomohiro Yakumaruさんの領域</div>
-                <div>コイン発行数</div>
-                <div>コイン価格</div>
-                <div>プロジェクトの目的</div>
-                <div>プロダクトの各種展開</div>
-                <div>他、ETH及びオフチェーン以外のすべてにおけるビジネス及びプロダクト判断</div>
-
-            </div>    
-        </div>
-
+                <h2>ご連絡</h2>
+                <h3>面談や各種登壇で以下の内容については、答えられないのでご留意ください。</h3>
+                <p>2015年10月～2019年5月、2020年3月~2020年８月現在のゲーム会社における技術以外の担当やコミットした内容</p>
+                <p>エンジニア以外のスプリント周りについてもなしでお願いいたします</p>
+                <p>上記期間においては、タイトル名を上げての説明も、CryptoDerbyのみとなります</p>
+                <p>CryptoDerbyの仕様や現運用については 総合ディレクターである Tomohiro Yakumaru <a href="https://twitter.com/txd890">地場 衛</a>さん  まででお願いいたします</p>
+                <p>各案件の取引先情報</p>
+                <p>各案件の非公開扱いとなる技術領域</p>
+            </div>
+            <div>
+                <h2>IP関連について</h2>
+                <h3>ip関連の案件において、2020年９月時点です。そのため、以下は同じく答えられないのでご留意ください</h3>
+                <p>各案件の取引先情報</p>
+                <p>各案件の非公開扱いとなる技術領域</p>
+                <p>技術以外の参考領域</p>
+            </div>
+            <!-- モーダルウィンドウ２-->
+            <div>
+                <h2>ブロックチェーン関連についてのご連絡</h2>
+                <h3>CryptoDerbyから、2020年1月までのお話となります</h3>
+                <h4>鈴江の当時の役割</h4>
+                <h4>契約内容：非裁量案件として、技術職</h4>
+                <h4>担当領域1：オフチェーン側のゲーム開発、社内の企画チームから連絡が来た場合のお問い合わせ対応</h4>
+                <h4>担当領域2：プリセールにおける会員登録部分のjavascript担当</h4>
+                <h4>担当領域3：当時の社内企画チームから依頼を受けて技術的側面でのホワイトペーパーレビュー</h4>
+                <h4>お問い合わせを頂いても精度が低いため、各チームへご連絡をお願いします</h4>
+                <h4>鈴江の当時の未担当(技術)</h4>
+                <h4>領域1：エンジニアメンバーの賞与や配属・管理に関わる評価表提出(Tomohiro Yakumaruさんがプロジェクトメンバー対応)</h4>
+                <h4>お問い合わせを頂いても精度が低いため、各チームへご連絡をお願いします</h4>
+                <div>
+                    <h3>株式会社プラチナエッグ様ならびに Tomohiro Yakumaruさんの領域</h3>
+                    <h4>CryptoDerby並び当時のブロックチェーンにおけるゲームサイクル設計思想</h4>
+                    <div>ゲーム価値向上：ロードマップにおける優先順位</div>
+                    <h4>CryptoDerby及びETHにおける馬トークンの資産価値について</h4>
+                    <div>資産価値とは薬丸さんから、ご連絡をいただいており以下のように伺っております</div>
+                    <div>当時は未熟な状態で、以下のような多くのことに教えて頂きました。<br/>現在は、既に価値設計についてパラメータは完了していると伺っております。</div>
+                    <div><red>＊鈴江に各種雑談で聞かれても、主観でしか答えられないのでご注意願います</red></div>
+                    <div>鈴江自身は、下記領域についてはご指導を受けたのみとなりますので連絡先を記載いたします</div>
+                    <div>ブロックチェーンのビジネス部分の登壇依頼は、Tomohiro Yakumaruさんにお願いします</div>
+                    <div>アプリ問い合わせ CryptoDerby問い合わせ <a href="https://twitter.com/CryptoDerbyTKY"></a>さん</div>
+                    <div>総合ディレクター Tomohiro Yakumaru <a href="https://twitter.com/txd890">地場 衛</a>さん</div>
+                    <div>CryptoDerby内</div>
+                    <div>馬の見た目における希少度：数量限定馬の血統、人気があるかなど</div>
+                    <div>馬のインゲームにおける希少度1：スピードとスタミナの組み合わせによる距離毎に速く走れるか</div>
+                    <div>馬のインゲームにおける希少度2：草原や砂場などの地形に対して速く走れるか</div>
+                    <div>馬のインゲームにおける希少度3：レースの実績数における名誉</div>
+                    <div>馬のインゲームにおける希少度4：ゲーム内の名前や馬主による知名度</div>
+                    <div>馬のインゲームにおける希少度5：各パーツのレアリティと市場価値</div>
+                    <div>馬のインゲームにおける希少度6：馬の年齢</div>
+                    <div>馬のインゲームにおける希少度7：ゲーム世界における数量限定馬(ETHでの取引限定)</div>                
+                    <div>CryptoDerby外(ETHプラットフォームとしてご指導内容)</div>
+                    <div>取引数：パブリックチェーンにおけるアドレスでの流通度</div>
+                    <div>価格：パブリックチェーンにおけるOpenSea等における取引価格</div>
+                    <div>ホワイトペーパーにおけるTomohiro Yakumaruさんの領域</div>
+                    <div>コイン発行数</div>
+                    <div>コイン価格</div>
+                    <div>プロジェクトの目的</div>
+                    <div>プロダクトの各種展開</div>
+                    <div>他、ETH及びオフチェーン以外のすべてにおけるビジネス及びプロダクト判断</div>
+                </div>    
+            </div>        
+        </div>  
+        </modal>
     </div>
 </body>
 </html>
