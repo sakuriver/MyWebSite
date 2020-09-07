@@ -9,6 +9,8 @@ var bus = new Vue({
        isBlockChainActive: false,
        isHowToVrActive: false,
        isNotification: false,
+       isBusinessAbout: false,
+       isTechnicalAbout: false,
        show: false,
        hide: false,
      },
@@ -27,6 +29,12 @@ var bus = new Vue({
        },
        notification: function() {
          this.isNotification = !this.isNotification;
+       },
+       businessAbout: function() {
+         this.isBusinessAbout = !this.isBusinessAbout;
+       },
+       technicalAbout: function() {
+         this.isTechnicalAbout = !this.isTechnicalAbout;
        },
      },
      created: function() {

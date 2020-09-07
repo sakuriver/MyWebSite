@@ -28,6 +28,20 @@
         sakuriver/鈴江 勝成の家です
     </div>
     <div id="bussiness">
+        <button @click="businessAbout">業務経験　概要</button>
+        <div v-if="isBusinessAbout">
+            <div>Sier関連プログラマ 4年</div>
+            <div> Webサービス・ゲーム開発関連プログラマ 5年6ヵ月</div>
+        </div>
+        <button @click="technicalAbout">技術経験　概要</button>
+        <div v-if="isTechnicalAbout">
+            <div>PHP 約3年</div>
+            <div>Go言語 約2年</div>
+            <div>Python 約2年</div>
+            <div>Java 約6ヵ月</div>
+            <div>Ruby 約4ヵ月</div>
+            <div>C# 約2ヵ月</div>
+        </div>        
         <button @click="notification">ご連絡(Notification)</button>
         <div v-if="isNotification">
           <div>
@@ -138,10 +152,14 @@
             <h2>個人的に考えていること</h2>
             <h3>1.コロナの影響もあり、定年まで無敵の会社が少なくなる</h3>
             <h3>2.現場で開発している常駐や業務委託の方は、都度縮小が考えられる</h3>
-            <h3>上記の状況で、お仕事を途切れさせず生活していけるようにしていくために</h3>
+            <h3>3.契約更新単位が1~2ヵ月の方が増える</h3>
+            <h3>お仕事を途切れさせず生活していけるようにしていくために</h3>
             <h3>業務以外のニューノーマルになれる可能性として、種まき活動しています</h3>
-    
-            <h2>2020年9月時点では、鈴江と違い大丈夫かなと考えております</h2>
+            <h4>個人的には、試用期間が長くなったり、短期契約はwithcovidのある程度は運命かなと考えるため</h4>
+            <h2>
+                2020年9月時点では、鈴江と違い大丈夫かなと考えております<br/>
+                鈴江の状況と比べると、ニューノーマルに対して時間があるという認識
+            </h2>
             <h3>正社員や管理職経験のある方</h3>
             <h3>世に出せる代表作があり仕事が取れる方</h3>
             <h3>長期契約が取れている方</h3>
