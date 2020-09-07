@@ -6,7 +6,11 @@ var bus = new Vue({
      el: '#bussiness',
      data: {
        opened: false,
-       isBlockChainActive: false
+       isBlockChainActive: false,
+       isHowToVrActive: false,
+       isNotification: false,
+       show: false,
+       hide: false,
      },
      methods: {
        open: function() {
@@ -17,6 +21,12 @@ var bus = new Vue({
        },
        blockChainActive: function() {
          this.isBlockChainActive = !this.isBlockChainActive;
+       },
+       howToVrActive: function() {
+         this.isHowToVrActive = !this.isHowToVrActive;
+       },
+       notification: function() {
+         this.isNotification = !this.isNotification;
        },
      },
      created: function() {

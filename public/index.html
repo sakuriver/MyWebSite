@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
     <title><%= htmlWebpackPlugin.options.title %></title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="https://unpkg.com/vue"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue-js-modal@1.3.31/dist/index.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vue-js-modal@1.3.31/dist/styles.css">    
@@ -27,13 +28,14 @@
         sakuriver/鈴江 勝成の家です
     </div>
     <div id="bussiness">
-        <button v-on:click="show" class="button">ご連絡(Notification)</button>
-        <div>
+        <button @click="notification">ご連絡(Notification)</button>
+        <div v-if="isNotification">
+          <div>
             商業実績(公開可能分)
             CryptoDerby
             バックエンド実装
-        </div>
-        <div>
+          </div>
+          <div>
             あいうえお
             作品集...IPや各種作品で、非公開となっているものについて同様の技術領域で現在用意中となります。
             <p>役割0：趣味ややりたかったことの延長：unityroomでのご案内</p>
@@ -41,18 +43,16 @@
             <p>役割2：技術領域でもNDA強め案件の代わりの資料として</p>
             <p>役割3：これからに向けて、取り組んでいる内容のまとめと未来ポートフォリオ用</p>
             <p>役割4：面白そうなテーマやコミュニティイベントで試作したもの</p>
-
-
             youtubeに掲載している動画と一緒にご説明させていた誰場と思います
             <a href="https://docs.google.com/spreadsheets/d/1I8TV2l-UcwWR5whEZT24nBveiK999qlD8ngEuhkaVzk/edit?usp=drive_open&ouid=112709719422071788648">オープンコンテンツ</a>
+          </div>
         </div>
         <!-- モーダルウィンドウ用 -->
-        <modal name="hello-world" :draggable="true" :resizable="true">
         <div class="modal-header">
             <h2>業務経歴について</h2>
         </div>
         <button @click="blockChainActive">商業実績表示</button>
-        <div class="modal-body" v-if="isBlockChainActive">
+        <div v-if="isBlockChainActive">
             <div>
                 <h2>ご連絡</h2>
                 <h3>面談や各種登壇で以下の内容については、答えられないのでご留意ください。</h3>
@@ -123,20 +123,30 @@
 
             </div>        
         </div>  
-        </modal>
+        <button @click="howToVrActive">なぜ作っているか</button>
+        <div v-if="isHowToVrActive">
+            <h1>なぜ、未来型経歴書等を作っているか</h1>
+            <h2>1.従来の実績及びキャリア制度では、鈴江勝成個人については非公開案件が９割の為、自作品でしか話す必要があるため</h2>
+            <h2>2.面接等で会話する内容について通常業務経験以外の作品や遊んでいる内容でしか以外は、Web系のみで勿体ないから</h2>
+            <h2>3.管理職として面接及び登壇で話せるプロジェクトがひとつだけの為</h2>
+    
+            <h2>そのため<red>＊同じように経歴を出せない方のサンプルなどになれば幸いです</red></h2>
+            <h3>作品名は原則非公開</h3>
+            <h3>契約以外の業務は全て秘密</h3>
+            <h3>管理職の年数を記載できない、30過ぎでの戦略を模索する会です</h3> 
+    
+            <h2>個人的に考えていること</h2>
+            <h3>1.コロナの影響もあり、定年まで無敵の会社が少なくなる</h3>
+            <h3>2.現場で開発している常駐や業務委託の方は、都度縮小が考えられる</h3>
+            <h3>上記の状況で、お仕事を途切れさせず生活していけるようにしていくために</h3>
+            <h3>業務以外のニューノーマルになれる可能性として、種まき活動しています</h3>
+    
+            <h2>2020年9月時点では、鈴江と違い大丈夫かなと考えております</h2>
+            <h3>正社員や管理職経験のある方</h3>
+            <h3>世に出せる代表作があり仕事が取れる方</h3>
+            <h3>長期契約が取れている方</h3>
+            <h3>過去の実績として取引先を出して、案件が取れる各社様</h3>
+        </div>
     </div>
-    <div id="">
-        <h1>なぜ各種活動で、未来型経歴書等を作っているか</h1>
-        <h2>1.従来の実績及びキャリア制度では、鈴江勝成個人についてはNDAが厳しく書いたり話せることがないため</h2>
-        <h2>2.面接等で会話する内容について通常業務経験以外の作品や遊んでいる内容でしか以外は、Web系しかほぼ話せないから</h2>
-        <h2>3.また、管理職として口頭許可が出ている案件も一つしかないため</h2>
-        <h2>そのため</h2>
-        <h3>作品名を出せず</h3>
-        <h3>契約以外の業務を秘密にしないといけず</h3>
-        <h3>管理職の年数を掛けない30過ぎでの戦略を模索する会となります</h3>
-        <h3><red>＊同じように経歴を出せない方のサンプルなどになれば幸いです</red></h3>
-
-    </div>
-
 </body>
 </html>
