@@ -3,7 +3,7 @@
 <script>
  // モーダルのVueインスタンス
 var bus = new Vue({
-     el: '#hello-world',
+     el: '#bussiness',
      data: {
        opened: false,
        isBlockChainActive: false
@@ -16,7 +16,7 @@ var bus = new Vue({
          this.opened = false;
        },
        blockChainActive: function() {
-         this.isBlockChainActive = this.isBlockChainActive == false
+         this.isBlockChainActive = !this.isBlockChainActive;
        },
      },
      created: function() {
