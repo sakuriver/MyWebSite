@@ -49,7 +49,8 @@
         <div class="modal-header">
             <h2>業務経歴について</h2>
         </div>
-        <div class="modal-body">
+        <button @click="blockChainActive">商業実績表示</button>
+        <div class="modal-body" v-if="isBlockChainActive">
             <div>
                 <h2>ご連絡</h2>
                 <h3>面談や各種登壇で以下の内容については、答えられないのでご留意ください。</h3>
@@ -110,7 +111,12 @@
                     <div>プロジェクトの目的</div>
                     <div>プロダクトの各種展開</div>
                     <div>他、ETH及びオフチェーン以外のすべてにおけるビジネス及びプロダクト判断</div>
-                </div>    
+                </div>
+                <h4>ブロックチェーン領域における担当</h4>
+                <div>
+                    <div></div>
+                </div>
+
             </div>        
         </div>  
         </modal>

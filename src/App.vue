@@ -1,13 +1,28 @@
-Vue.use(window["vue-js-modal"].default);
 
-var app = new Vue({
-  el: '#app',
-  methods: {
-    show : function() {
-      this.$modal.show('hello-world');
-    },
-    hide : function () {
-      this.$modal.hide('hello-world');
-    },
-  }
-})
+
+<script>
+ // モーダルのVueインスタンス
+var bus = new Vue({
+     el: '#hello-world',
+     data: {
+       opened: false,
+       isBlockChainActive: false
+     },
+     methods: {
+       open: function() {
+         this.opened = true;
+       },
+       close: function() {
+         this.opened = false;
+       },
+       blockChainActive: function() {
+         this.isBlockChainActive = this.isBlockChainActive == false
+       },
+     },
+     created: function() {
+       // 独自イベントclick.triggerを定義
+       bus.$on('click.trigger', this.open);
+     }
+    });
+
+</script>
